@@ -35,17 +35,7 @@ const user = new Schema ({
         required : true,
     },
 
-})
+}),
 
-const book = new schema ({
-    bookTitle : {
-        type : String,
-        required : true,
-        
-    },
-    price : {
-        type : int,
-        
-    },
-
-})
+const user = mongoose.model('User',UserSchema);
+module.exports = User;
