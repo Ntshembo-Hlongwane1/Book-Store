@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { config } from "dotenv";
 import { connect } from "mongoose";
+import AuthRoute from './Routes/Auth/Auth'
 config();
 const server = express();
 
@@ -22,6 +23,9 @@ connect(mongoURI, connectionOptions, (error) => {
   }
   console.log(`Connection to MongoDB was succesful`);
 });
+
+//=================================================================================================
+server.use(AuthRoute)
 
 //===================================Server connection & Configs===================================
 const PORT = process.env.PORT || 5000;
