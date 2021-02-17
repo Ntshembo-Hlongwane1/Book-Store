@@ -5,14 +5,15 @@ const book = new schema ({
         required : true,        
     },
     price : {
-        type : int,        
+        type : int, 
+        required : true       
     },
     releaseDate :{
         type : Date,
     },
-    cover : {
+    coverImage : {
         type : Image,
-        required : true,
+        required : true
     },
     biography :{
         type : String,
@@ -28,15 +29,15 @@ const book = new schema ({
         type : String,
     },
     amount_Stock :{
-        type : int,
+        type : Number,
     },
     average_rate :{
-        type : Float,
+        type : Number,
     },
     biography :{
         type : String,
     },
 }),
 
-const Book = mongoose.model('User',UserSchema);
+const Book = mongoose.model('Book',UserSchema);
 module.exports = Book;

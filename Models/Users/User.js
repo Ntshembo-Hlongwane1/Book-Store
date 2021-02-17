@@ -1,41 +1,47 @@
 import {Schema,models} from 'mongoose'
-const user = new Schema ({
-    username : {
-        type : String,
-        required : true,
-        unique : true,
+const userSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        trim: true,
+        
     },
-    password :{
-        type : String,
-        required : true,
-        unique : true,
+    // TODO: Password must meet our current security standards
+    password: {
+        type: String,
+        required: true,
+        minlength: 8,
+        
     },
-    emailAddress : {
-
-        type : String,
-        required : true,
-        unique : true,
-    },
-    homeAddress : {
-        type : String,
-        required : true,
-        unique : true,
-    },
-    homeAddressValidation : {
-        type : Boolean,
-        required :true,
-    },
-    nickname : {
-        type : String,
-        required : true,
-        unique : true,
-    },
-    anonymousStatus :{
-        type : Boolean,
-        required : true,
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique : true //wac
     },
 
-}),
+    homeAddress : {  //wac
+        type : String,
+        required : true,
+        trim: true,
+    },
+
+    nickname : {    //wac
+        type : String,
+        required : true,
+        trim: true,
+        unique : true,
+    },
+
+    shippingAddress :{  //wac
+        type : String,
+        required : true,
+        trim: true,
+    },
+
+  
+    
+});
 
 const user = mongoose.model('User',UserSchema);
 module.exports = User;
