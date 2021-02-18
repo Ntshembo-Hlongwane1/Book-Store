@@ -9,5 +9,9 @@ router.post('/api/signup', (request, response)=>{
   Controller.Signup(request, response)
 })
 
+router.post('/api/signin', (request, response)=>{
+  Controller.Signin(request, response)
+})
+
 
 export default router

@@ -1,0 +1,16 @@
+.auth-form{
+  display: flex;
+  flex-flow: column;
+  width: 60%;
+  margin:0% auto;
+  margin-top: 3rem;
+}
+
+
+.auth-form-header{
+  margin-bottom: 1.5rem
+}
+
+.auth-form > input{
+  margin-bottom: 2rem
+}

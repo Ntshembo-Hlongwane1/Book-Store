@@ -1,6 +1,7 @@
 import { IncomingForm } from 'formidable'
 import { hash, genSalt, compare } from 'bcrypt';
-import { user } from '../../Models/Users/User'
+import { user } from '../../Models/Users/User';
+import { generateToken } from '../../Utils/Token/Token'
 
 
 class AuthController{
@@ -43,6 +44,43 @@ class AuthController{
       })
     } catch (error) {
       return response.status(500).json({msg:"Network Error: Failed to signup user"})
+    }
+  }
+
+  Signin(request, response){
+    const form = new IncomingForm();
+
+    try {
+      form.parse(request, async (error, fields, files)=>{
+        if (error){
+          return response.status(500).json({msg:'Network Error: Failed to sign you in'})
+        }
+        const { email, password } = fields;
+        if (!email || !password){
+          return response.status(400).json({msg:'All fields are required'})
+        }
+        const isEmailExisting = await user.findOne({email:email});
+        if (!isEmailExisting){
+          return response.status(404).json({msg:'Account with this email does not exist'})
+        }
+
+        const user_Account = isEmailExisting;
+        const hashedPassword = user_Account.password;
+        const isPasswordValid = await compare(password, hashedPassword);
+
+        if (!isPasswordValid){
+          return response.status(400).json({msg:'Invalid credentials'})
+        }
+
+        const id = user_Account._id;
+        const user_email = user_Account.email
+        const token = generateToken(id, user_email)
+
+        return response.status(200).json({token:token})
+
+      })
+    } catch (e) {
+      return response.status(500).json({msg:'Network Error: Failed to sign you in'})
     }
   }
 }
