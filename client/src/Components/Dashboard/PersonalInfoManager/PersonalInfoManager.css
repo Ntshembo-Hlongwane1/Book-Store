@@ -1,0 +1,42 @@
+.personal-info-update-form{
+  display: flex;
+  flex-flow: column;
+  padding-left: 3rem
+}
+
+.personal-info-update-form > h2{
+  margin-bottom: 2rem
+}
+
+.personal-info-update-form > input{
+  margin-bottom: 1rem
+}
+
+.btn-wrapper{
+  margin-top: 1.5rem
+}
+
+.btn-update-info{
+  border-radius: 100px;
+  padding: .4rem 2rem;
+  transition: ease-in-out .4s;
+  background-color:white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.btn-update-info:hover{
+  background-color: black;
+  color: white;
+}
+
+.btn-cancel{
+  margin-left: 1.5rem;
+  background: red;
+  border-radius: 100px;
+  padding: .4rem 2rem;
+  transition: ease-in-out .4s;
+  color: white;
+  cursor: pointer;
+
+}

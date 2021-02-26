@@ -1,0 +1,11 @@
+.menu-option{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1.2rem
+}
+
+.menu-text{
+  margin-left: .5rem;
+  font-weight: 400
+}

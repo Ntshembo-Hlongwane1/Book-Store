@@ -142,6 +142,11 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+
+.dashbord-divider{
+  display: flex;
+}
+
 /* =========================================================== */
 /* Container Sizings */
 /* =========================================================== */

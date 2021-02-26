@@ -58,7 +58,7 @@ const Auth = () => {
   const LoginUser = (e)=>{
     const baseURL = {
       dev:'http://localhost:5000/api/signin',
-      prod:''
+      prod:'https://geek-store-api.herokuapp.com/api/signin'
     }
     const url = process.env.NODE_ENV === "production" ? baseURL.prod : baseURL.dev
     e.preventDefault();
@@ -71,7 +71,7 @@ const Auth = () => {
       history.push('/');
       window.location.reload(false)
     }).catch(err=>{
-      alert(err.response.data.msg)
+      alert(err)
     })
 
   }
@@ -80,7 +80,7 @@ const Auth = () => {
     e.preventDefault();
     const baseURL = {
       dev:'http://localhost:5000/api/signup',
-      prod:''
+      prod:'https://geek-store-api.herokuapp.com/api/signup'
     }
     const url = process.env.NODE_ENV === "production" ? baseURL.prod : baseURL.dev
 
