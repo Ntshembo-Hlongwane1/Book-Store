@@ -5,7 +5,8 @@ import { Navigation } from './Components/Home/Navigation/Navigation'
 import { SideBar } from './Components/Dashboard/SideBar/SideBar'
 import { DashboardHome } from './Components/Dashboard/DashboardHome';
 import { PersonalInfoManager } from './Components/Dashboard/PersonalInfoManager/PersonalInfoManager';
-import { LoginManger } from './Components/Dashboard/LoginManager/LoginManger'
+import { LoginManger } from './Components/Dashboard/LoginManager/LoginManger';
+import { NewCreditCard } from './Components/Dashboard/CreditCardManager/NewCreditCard'
 
 function App() {
   return (
@@ -16,6 +17,12 @@ function App() {
           <div className="dashbord-divider">
             <SideBar />
             <DashboardHome />
+          </div>
+        </Route>
+        <Route path="/dashboard/add-new-credit-card" exact={true}>
+          <div className="dashbord-divider">
+            <SideBar />
+            <NewCreditCard />
           </div>
         </Route>
         <Route path="/dashboard/update-login-details" exact={true}>

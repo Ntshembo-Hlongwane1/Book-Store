@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import { config } from "dotenv";
 import { connect } from "mongoose";
-import AuthRoute from './Routes/Auth/Auth'
+import AuthRoute from './Routes/Auth/Auth';
+import AccountManager from './Routes/AccountManger/AccountManger'
 config();
 const server = express();
 
@@ -26,6 +27,7 @@ connect(mongoURI, connectionOptions, (error) => {
 
 //=================================================================================================
 server.use(AuthRoute)
+server.use(AccountManager)
 
 //===================================Server connection & Configs===================================
 const PORT = process.env.PORT || 5000;

@@ -33,7 +33,9 @@ export const SideBar = () => {
         </div>
         {
           !isCreditCardMenuOpened ? null : <div className="credit-card-menu">
-            <h4 className="credit-card-menu-options" >- Add New Credit Card</h4>
+            <Link to="/dashboard/add-new-credit-card" className="Router__link">
+              <h4 className="credit-card-menu-options" >- Add New Credit Card</h4>
+            </Link>
             <h4 className="credit-card-menu-options">- Manage Credit Cards</h4>
           </div>
         }
@@ -44,8 +46,8 @@ export const SideBar = () => {
         </div>
         {
           !isShippingMenuOpened ? null : <div className="shipping-menu">
-            <h4 className="shipping-menu-options" >- Add New Credit Card</h4>
-            <h4 className="shipping-menu-options">- Manage Credit Cards</h4>
+            <h4 className="shipping-menu-options">- Add New Shipping Address</h4>
+            <h4 className="shipping-menu-options">- Manage Shipping Address</h4>
           </div>
         }
       </div>
