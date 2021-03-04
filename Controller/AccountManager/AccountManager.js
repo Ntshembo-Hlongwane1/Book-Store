@@ -1,5 +1,5 @@
 import { IncomingForm } from 'formidable';
-import { user } from '../../Models/Users/User'
+import { user } from '../../Models/Users/User';
 
 class AccountManager{
 
@@ -21,22 +21,17 @@ class AccountManager{
           return response.status(404).json({msg:'Account with this email does not exist'})
         }
         const userDoc = isUserExisting;
-
         userDoc.name = name ? name : userDoc.name;
         userDoc.email = email ? email : userDoc.email;
         userDoc.nickname   = nickname ? nickname : userDoc.nickname;
         userDoc.homeAddress   = home_address ? home_address : userDoc.homeAddress;
-
         const updatedDoc = await user.findOneAndUpdate({email:user_email}, userDoc, {new:true})
-
         return response.status(200).json({msg:'Personal information updated'})
-
       })
     }catch(error){
       return response.status(500).json({msg:'Network Error: Failed to update personal information'})
     }
   }
-
 }
 
 export { AccountManager }

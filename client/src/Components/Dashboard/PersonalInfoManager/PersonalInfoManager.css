@@ -40,3 +40,8 @@
   cursor: pointer;
 
 }
+
+.Notification-Card{
+  position: absolute;
+  top: 1%;
+}
