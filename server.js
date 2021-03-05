@@ -3,7 +3,10 @@ import cors from "cors";
 import { config } from "dotenv";
 import { connect } from "mongoose";
 import AuthRoute from './Routes/Auth/Auth';
-import AccountManager from './Routes/AccountManger/AccountManger'
+import AccountManager from './Routes/AccountManger/AccountManger';
+import booksRouter from './Routes/books.js'
+import genresRouter from './Routes/genres.js'
+import authorsRouter from './Routes/authors.js'
 config();
 const server = express();
 
@@ -28,6 +31,11 @@ connect(mongoURI, connectionOptions, (error) => {
 //=================================================================================================
 server.use(AuthRoute)
 server.use(AccountManager)
+server.use('/books', booksRouter);
+
+server.use('/genres', genresRouter);
+
+server.use('/authors', authorsRouter);
 
 //===================================Server connection & Configs===================================
 const PORT = process.env.PORT || 5000;
